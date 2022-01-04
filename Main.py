@@ -1,6 +1,7 @@
 import streamlit as st
 import Controller as controller
 import pandas as pd
+import Alunos as alunos
 
 st.title("CRUD-ESCOLA-BTOR")
 user = st.sidebar.text_input(label='Login')
@@ -20,7 +21,7 @@ if st.sidebar.checkbox("Logar"):
                 input_button_submit = st.form_submit_button("Enviar")
                                 
             if input_button_submit:
-                controller.incluir(input_name, input_cpf, input_data)
+                controller.incluir(alunos.Alunos(0, input_name, input_cpf, input_data))
                 st.success("Aluno Adicionado com Sucesso")
 
         if page_aluno == "Consultar":
@@ -28,8 +29,8 @@ if st.sidebar.checkbox("Logar"):
             lista_alunos = []
             for i in controller.status():
                 lista_alunos.append([i.id, i.nome, i.cpf, i.data])
+                    
             df = pd.DataFrame(lista_alunos, columns = ['ID', 'Nome', 'CPF', 'DATA'])
-            df.reset_index(drop=True, inplace=True)
             st.table(df)
 
         if page_aluno == "Alterar":
