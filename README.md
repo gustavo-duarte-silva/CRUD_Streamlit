@@ -1,6 +1,6 @@
 # CRUD_Streamlit
 
-## CRUD criado Utilizando a biblioteca Streamlit, Pandas e MySQL-connect-python
+## CRUD Utilizando as bibliotecas Streamlit, Pandas e MySQL-connect-python
 
 ### Tela de Login com Usuario Invalido
 
